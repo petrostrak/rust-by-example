@@ -11,6 +11,7 @@
 /02_primitives/tuples/target
 /02_primitives/arrays_and_slices/target
 /03_custom_types/structures/target
+/03_custom_types/enums/target
 
 # Remove Cargo.lock from gitignore if creating an executable, leave it for libraries
 # More information here https://doc.rust-lang.org/cargo/guide/cargo-toml-vs-cargo-lock.html
