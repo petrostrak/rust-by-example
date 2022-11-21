@@ -25,6 +25,8 @@
 /05_types/literals/target
 /05_types/inference/target
 /05_types/aliasing/target
+/06_conversion/from_and_into/from/target
+/06_conversion/from_and_into/into/target
 
 # Remove Cargo.lock from gitignore if creating an executable, leave it for libraries
 # More information here https://doc.rust-lang.org/cargo/guide/cargo-toml-vs-cargo-lock.html
