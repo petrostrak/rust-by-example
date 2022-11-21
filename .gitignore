@@ -19,6 +19,7 @@
 /04_variable_bindings/variables/target
 /04_variable_bindings/mutability/target
 /04_variable_bindings/scope_and_shadowing/target
+/04_variable_bindings/declare_first/target
 
 # Remove Cargo.lock from gitignore if creating an executable, leave it for libraries
 # More information here https://doc.rust-lang.org/cargo/guide/cargo-toml-vs-cargo-lock.html
