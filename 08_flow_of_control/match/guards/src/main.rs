@@ -15,7 +15,7 @@ fn main() {
         // The `if condition` part ^ is a guard
         Temperature::Celcius(t) => println!("{}˚C is below 30 Celcius", t),
         Temperature::Fahrenheit(t) if t > 86 => println!("{}˚F is above 86 Fahrenheit", t),
-        Temperature::Fahrenheit(t) => println!("{}˚F is below 86 Fahrenheit",t),
+        Temperature::Fahrenheit(t) => println!("{}˚F is below 86 Fahrenheit", t),
     }
 
     // Note that the compiler won't take guard conditions into account when checking if all
