@@ -1,3 +1,4 @@
+## Attributes
 An attribute is metadata applied to some module, crate or item. This metadata can be used to/for:
 * conditional compilation of code
 * set crate name, version and type (binary or library)
@@ -20,8 +21,22 @@ Attributes can have multiple values and can be separated over multiple lines, to
 ```
 #[attribute(value, value2)]
 
-
 #[attribute(value, value2, value3,
             value4, value5)]
+```
+## dead_code
+The compiler provides a `dead_code` lint that will warn about unused functions. An attribute can be used to disable the lint.
+```rust
+fn used_function() {}
 
+// `#[allow(dead_code)]` is an attribute that disables the `dead_code` lint
+#[allow(dead_code)]
+fn unused_function() {}
+
+#[allow(dead_code)]
+fn noisy_unused_function() {}
+
+fn main() {
+    used_function();
+}
 ```
