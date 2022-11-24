@@ -103,3 +103,15 @@ fn main() {
     }
 }
 ```
+## Custom cfg
+Some conditionals like `target_os` are implicitly provided by rustc, but custom conditionals must be passed to rustc using the `--cfg` flag.
+```rust
+#[cfg(some_condition)]
+fn conditional_function() {
+    println!("condition met!");
+}
+
+fn main() {
+    conditional_function();
+}
+```
