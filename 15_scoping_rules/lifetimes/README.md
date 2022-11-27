@@ -47,3 +47,8 @@ Ignoring elision, function signatures with lifetimes have a few constraints:
 * any reference being returned must have the same lifetime as an input or be `static`.
 
 Additionally, note that returning references without input is banned if it would result in returning references to invalid data.
+## Bounds
+Just like generic types can be bounded, lifetimes (themselves generic) use bounds as well. The `:` character has a slightly different meaning here, but `+` is the same. Note how the following read:
+
+* `T: 'a`: *All* references in `T` must outlive lifetime `'a`.
+* `T: Trait + 'a`: Type `T` must implement trait Trait and *all* references in `T` must outlive `'a`.
