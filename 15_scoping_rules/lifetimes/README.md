@@ -52,3 +52,5 @@ Just like generic types can be bounded, lifetimes (themselves generic) use bound
 
 * `T: 'a`: *All* references in `T` must outlive lifetime `'a`.
 * `T: Trait + 'a`: Type `T` must implement trait Trait and *all* references in `T` must outlive `'a`.
+## Coersion
+A longer lifetime can be coerced into a shorter one so that it works inside a scope it normally wouldn't work in. This comes in the form of inferred coercion by the Rust compiler, and also in the form of declaring a lifetime difference.
