@@ -33,3 +33,7 @@ The `Iterator` trait is used to implement iterators over collections such as arr
 The trait requires only a method to be defined for the `next` element, which may be manually defined in an `impl` block or automatically defined (as in arrays and ranges).
 
 As a point of convenience for common situations, the `for` construct turns some collections into iterators using the [.into_iter()](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) method.
+## Clone
+When dealing with resources, the default behavior is to transfer them during assignments or function calls. However, sometimes we need to make a copy of the resource as well.
+
+The [Clone](https://doc.rust-lang.org/std/clone/trait.Clone.html) trait helps us do exactly this. Most commonly, we can use the `.clone()` method defined by the `Clone` trait.
