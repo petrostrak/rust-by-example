@@ -23,3 +23,7 @@ Rust tries to be as explicit as possible whenever it allocates memory on the hea
 In Rust, many of the operators can be overloaded via traits. That is, some operators can be used to accomplish different tasks based on their input arguments. This is possible because operators are syntactic sugar for method calls. For example, the `+` operator in `a + b` calls the `add` method (as in `a.add(b)`). This `add` method is part of the `Add` trait. Hence, the `+` operator can be used by any implementor of the `Add` trait.
 
 A list of the traits, such as `Add`, that overload operators can be found in [core::ops](https://doc.rust-lang.org/core/ops/).
+## Drop
+The `Drop` trait only has one method: `drop`, which is called automatically when an object goes out of scope. The main use of the `Drop` trait is to free the resources that the implementor instance owns.
+
+`Box`, `Vec`, `String`, `File`, and `Process` are some examples of types that implement the `Drop` trait to free resources. The `Drop` trait can also be manually implemented for any custom data type.
