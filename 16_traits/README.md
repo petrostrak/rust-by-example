@@ -27,3 +27,9 @@ A list of the traits, such as `Add`, that overload operators can be found in [co
 The `Drop` trait only has one method: `drop`, which is called automatically when an object goes out of scope. The main use of the `Drop` trait is to free the resources that the implementor instance owns.
 
 `Box`, `Vec`, `String`, `File`, and `Process` are some examples of types that implement the `Drop` trait to free resources. The `Drop` trait can also be manually implemented for any custom data type.
+## Iterators
+The `Iterator` trait is used to implement iterators over collections such as arrays.
+
+The trait requires only a method to be defined for the `next` element, which may be manually defined in an `impl` block or automatically defined (as in arrays and ranges).
+
+As a point of convenience for common situations, the `for` construct turns some collections into iterators using the [.into_iter()](https://doc.rust-lang.org/std/iter/trait.IntoIterator.html) method.
