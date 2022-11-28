@@ -29,3 +29,20 @@ There are three basic ideas:
 * Patterns and Designators
 * Overloading
 * Repetition
+### Designators
+The arguments of a macro are prefixed by a dollar sign `$` and type annotated with a `designator`.
+These are some of the available designatoes:
+* `block`
+* `expr` is used for expressions
+* `ident` is used for variable/function names
+* `item`
+* `literal` is used for literal constants
+* `pat` (pattern)
+* `path`
+* `stmt` (statement)
+* `tt` (token tree)
+* `ty` (type)
+* `vis` (visibility qualifier)
+For a complete list, see the [Rust Reference](https://doc.rust-lang.org/reference/macros-by-example.html).
+### Overload
+Macros can be overloaded to accept different combinations of arguments. In that regard, `macro_rules!` can work similarly to a match block.
