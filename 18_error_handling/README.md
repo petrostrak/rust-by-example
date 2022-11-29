@@ -12,3 +12,8 @@ When there is a chance that things do go wrong and the caller has to deal with t
 For a more rigorous discussion of error handling, refer to the error handling section in the [official book](https://doc.rust-lang.org/book/ch09-00-error-handling.html).
 ### panic
 The simplest error handling mechanism we will see is `panic`. It prints an error message, starts unwinding the stack, and usually exits the program.
+### abort and unwind
+The panic strategy can be set from the command line by using `abort` or `unwind`.
+```
+rustc main.rs -C panic=abort
+```
