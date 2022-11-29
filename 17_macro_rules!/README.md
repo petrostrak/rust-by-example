@@ -50,3 +50,5 @@ Macros can be overloaded to accept different combinations of arguments. In that 
 Macros can use `+` in the argument list to indicate that an argument may repeat at least once, or `*`, to indicate that the argument may repeat zero or more times.
 
 Surrounding the matcher with `$(...),+` will match one or more expression, separated by commas. Also note that the semicolon is optional on the last case.
+## Domain Specific Languages (DSLs)
+A DSL is a mini "language" embedded in a Rust macro. It is completely valid Rust because the macro system expands into normal Rust constructs, but it looks like a small language. This allows you to define concise or intuitive syntax for some special functionality (within bounds).
