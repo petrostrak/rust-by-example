@@ -41,3 +41,7 @@ You can chain many `?s` together to make your code much more readable.
 `match` is a valid method for handling Options. However, you may eventually find heavy usage tedious, especially with operations only valid with an input. In these cases, [combinators](https://doc.rust-lang.org/reference/glossary.html#combinator) can be used to manage control flow in a modular fashion.
 
 `Option` has a built in method called `map()`, a combinator for the simple mapping of `Some -> Some` and `None -> None`. Multiple `map()` calls can be chained together for even more flexibility.
+## Combinators:and_then
+`map()` was described as a chainable way to simplify match statements. However, using `map()` on a function that returns an `Option<T>` results in the nested `Option<Option<T>>`. Chaining multiple calls together can then become confusing. That's where another combinator called `and_then()`, known in some languages as flatmap, comes in.
+
+`and_then()` calls its function input with the wrapped value and returns the result. If the `Option` is `None`, then it returns `None` instead.
