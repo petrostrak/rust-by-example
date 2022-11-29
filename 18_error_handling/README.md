@@ -17,3 +17,12 @@ The panic strategy can be set from the command line by using `abort` or `unwind`
 ```
 rustc main.rs -C panic=abort
 ```
+## Option & unwrap
+An `enum` called `Option<T>` in the `std` library is used when absence is a possibility. It manifests itself as one of two "options":
+
+* `Some(T)`: An element of type T was found
+* `None`: No element was found
+
+These cases can either be explicitly handled via `match` or implicitly with `unwrap`. Implicit handling will either return the inner element or `panic`.
+
+Note that it's possible to manually customize `panic` with `expect`, but `unwrap` otherwise leaves us with a less meaningful output than explicit handling.
