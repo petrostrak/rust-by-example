@@ -144,3 +144,32 @@ fn main() {
     // my_apple is unchanged: Some(Apple)
 }
 ```
+## Result
+`Result` is a richer version of the `Option` type that describes possible error instead of possible absence.
+
+That is, `Result<T, E>` could have one of two outcomes:
+
+* `Ok(T)`: An element `T` was found
+* `Err(E)`: An error was found with element `E`
+
+By convention, the expected outcome is `Ok` while the unexpected outcome is `Err`.
+
+Like `Option`, `Result` has many methods associated with it. `unwrap()`, for example, either yields the element `T` or `panic`s. For case handling, there are many combinators between `Result` and `Option` that overlap.
+
+In working with Rust, you will likely encounter methods that return the `Result` type, such as the `parse()` method. It might not always be possible to parse a string into the other type, so `parse()` returns a `Result` indicating possible failure.
+### Using Result in main
+The `Result` type can also be the return type of the main function if specified explicitly.
+If an error occurs within the main function it will return an error code and print a debug representation of the error (using the `Debug` trait). The following example shows such a scenario.
+```rust
+use std::num::ParseIntError;
+
+fn main() -> Result<(), ParseIntError> {
+    let number_str = "10";
+    let number = match number_str.parse::<i32>() {
+        Ok(number)  => number,
+        Err(e) => return Err(e),
+    };
+    println!("{}", number);
+    Ok(())
+}
+```
