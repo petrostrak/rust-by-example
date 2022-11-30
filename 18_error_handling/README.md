@@ -173,3 +173,9 @@ fn main() -> Result<(), ParseIntError> {
     Ok(())
 }
 ```
+### map for Result
+Generally, we want to return the error to the caller so it can decide what is the right way to respond to errors.
+
+We first need to know what kind of error type we are dealing with. To determine the `Err` type, we look to `parse()`, which is implemented with the `FromStr` trait for `i32`. As a result, the `Err` type is specified as `ParseIntError`.
+
+Luckily, `Option`'s `map`, `and_then`, and many other combinators are also implemented for `Result`. [Result](https://doc.rust-lang.org/std/result/enum.Result.html) contains a complete listing.
