@@ -183,3 +183,7 @@ Luckily, `Option`'s `map`, `and_then`, and many other combinators are also imple
 How about when we want to reuse a specific `Result` type many times? Recall that Rust allows us to create `aliases`. Conveniently, we can define one for the specific `Result` in question.
 
 At a module level, creating aliases can be particularly helpful. Errors found in a specific module often have the same `Err` type, so a single alias can succinctly define all associated `Result`s. This is so useful that the `std` library even supplies one: `io::Result!`
+### Early returns
+Another way to deal with this case analysis is to use a combination of `match` statements and *early returns*.
+
+That is, we can simply stop executing the function and return the error if one occurs. For some, this form of code can be easier to both read and write. 
