@@ -197,3 +197,7 @@ Upon finding an `Err`, there are two valid actions to take:
 `?` is *almost* exactly equivalent to an `unwrap` which `return`s instead of panicking on `Err`s. 
 ### The try! macro
 Before there was `?`, the same functionality was achieved with the `try!` macro. The `?` operator is now recommended, but you may still find `try!` when looking at older code.
+## Multiple error types
+`Result`s interact with other `Results` and `Options` interact with other `Option`s.
+
+Sometimes an `Option` needs to interact with a `Result`, or a `Result<T, Error1>` needs to interact with a Result<T, Error2>`. In those cases, we want to manage our different error types in a way that makes them composable and easy to interact with.
