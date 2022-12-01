@@ -187,3 +187,13 @@ At a module level, creating aliases can be particularly helpful. Errors found in
 Another way to deal with this case analysis is to use a combination of `match` statements and *early returns*.
 
 That is, we can simply stop executing the function and return the error if one occurs. For some, this form of code can be easier to both read and write. 
+### Introducing ?
+Sometimes we just want the simplicity of `unwrap` without the possibility of a `panic`. Until now, `unwrap` has forced us to nest deeper and deeper when what we really wanted was to get the variable out. This is exactly the purpose of `?`.
+Upon finding an `Err`, there are two valid actions to take:
+
+* `panic!` which we already decided to try to avoid if possible
+* `return` because an `Err` means it cannot be handled
+
+`?` is *almost* exactly equivalent to an `unwrap` which `return`s instead of panicking on `Err`s. 
+### The try! macro
+Before there was `?`, the same functionality was achieved with the `try!` macro. The `?` operator is now recommended, but you may still find `try!` when looking at older code.
