@@ -215,3 +215,7 @@ Rust allows us to define our own error types. In general, a "good" error type:
     * Good: `Err(BadChar(c, position))`
     * Bad: `Err("+ cannot be used here".to_owned())`
 * Composes well with other errors
+### Boxing errors
+A way to write simple code while preserving the original errors is to `Box` them. The drawback is that the underlying error type is only known at runtime and not statically determined.
+
+The stdlib helps in boxing our errors by having `Box` implement conversion from any type that implements the `Error` trait into the trait object `Box<Error>`, via `From`.
