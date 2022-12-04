@@ -57,3 +57,15 @@ Where vectors store values by an integer index, `HashMaps` store values by key. 
 Like vectors, `HashMap`s are growable, but HashMaps can also shrink themselves when they have excess space. You can create a HashMap with a certain starting capacity using `HashMap::with_capacity(uint)`, or use `HashMap::new()` to get a HashMap with a default initial capacity (recommended).
 
 For more information on how hashing and hash maps (sometimes called hash tables) work, have a look at [Hash Table Wikipedia](https://en.wikipedia.org/wiki/Hash_table).
+## Alternate/custom key types
+Any type that implements the `Eq` and `Hash` traits can be a key in `HashMap`. This includes:
+
+* `bool` (though not very useful since there is only two possible keys)
+* `int`, `uint`, and all variations thereof
+* `String` and `&str` (protip: you can have a `HashMap` keyed by `String` and call `.get()` with an `&str`)
+
+Note that `f32` and `f64` do not implement Hash, likely because floating-point precision errors would make using them as hashmap keys horribly error-prone.
+
+All collection classes implement `Eq` and `Hash` if their contained type also respectively implements `Eq` and `Hash`. For example, `Vec<T>` will implement `Hash` if `T` implements `Hash`.
+
+You can easily implement `Eq` and `Hash` for a custom type with just one line: `#[derive(PartialEq, Eq, Hash)]`. The compiler will do the rest. 
