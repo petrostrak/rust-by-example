@@ -20,3 +20,13 @@ A `String` is stored as a vector of bytes (`Vec<u8>`), but guaranteed to always 
 `&str` is a slice (`&[u8]`) that always points to a valid UTF-8 sequence, and can be used to view into a `String`, just like `&[u8]` is a view into `Vec<T>`.
 
 More `str/String` methods can be found under the [std::str](https://doc.rust-lang.org/std/str/) and [std::string](https://doc.rust-lang.org/std/string/) modules.
+## Literals and escapes
+There are multiple ways to write string literals with special characters in them. All result in a similar `&str` so it's best to use the form that is the most convenient to write. Similarly there are multiple ways to write byte string literals, which all result in `&[u8; N]`.
+
+Generally special characters are escaped with a backslash character: `\`. This way you can add any character to your string, even unprintable ones and ones that you don't know how to type. If you want a literal backslash, escape it with another one: `\\`
+
+String or character literal delimiters occuring within a literal must be escaped: `"\""`, `'\''`.
+
+For conversions between character encodings check out the [encoding](https://crates.io/crates/encoding) crate.
+
+A more detailed listing of the ways to write string literals and escape characters is given in the ['Tokens' chapter](https://doc.rust-lang.org/reference/tokens.html) of the Rust Reference.
