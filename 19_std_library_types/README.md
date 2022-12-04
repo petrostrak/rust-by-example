@@ -51,3 +51,9 @@ Be sure to check the [documentation](https://doc.rust-lang.org/std/result/index.
 The `panic!` macro can be used to generate a panic and start unwinding its stack. While unwinding, the runtime will take care of freeing all the resources *owned* by the thread by calling the destructor of all its objects.
 
 Since we are dealing with programs with only one thread, `panic!` will cause the program to report the panic message and exit.
+## HashMap
+Where vectors store values by an integer index, `HashMaps` store values by key. `HashMap` keys can be booleans, integers, strings, or any other type that implements the `Eq` and `Hash` traits. 
+
+Like vectors, `HashMap`s are growable, but HashMaps can also shrink themselves when they have excess space. You can create a HashMap with a certain starting capacity using `HashMap::with_capacity(uint)`, or use `HashMap::new()` to get a HashMap with a default initial capacity (recommended).
+
+For more information on how hashing and hash maps (sometimes called hash tables) work, have a look at [Hash Table Wikipedia](https://en.wikipedia.org/wiki/Hash_table).
