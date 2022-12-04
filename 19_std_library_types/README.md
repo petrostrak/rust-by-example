@@ -30,3 +30,10 @@ String or character literal delimiters occuring within a literal must be escaped
 For conversions between character encodings check out the [encoding](https://crates.io/crates/encoding) crate.
 
 A more detailed listing of the ways to write string literals and escape characters is given in the ['Tokens' chapter](https://doc.rust-lang.org/reference/tokens.html) of the Rust Reference.
+## Option
+Sometimes it's desirable to catch the failure of some parts of a program instead of calling `panic!`; this can be accomplished using the `Option` enum.
+
+The `Option<T>` enum has two variants:
+
+* `None`, to indicate failure or lack of value, and
+* `Some(value)`, a tuple struct that wraps a `value` with type `T`.
