@@ -47,3 +47,7 @@ The `Result<T, E>` enum has two variants:
 Chaining results using match can get pretty untidy; luckily, the `?` operator can be used to make things pretty again. `?` is used at the end of an expression returning a `Result`, and is equivalent to a match expression, where the `Err(err)` branch expands to an early `return Err(From::from(err))`, and the `Ok(ok)` branch expands to an `ok` expression.
 
 Be sure to check the [documentation](https://doc.rust-lang.org/std/result/index.html), as there are many methods to map/compose `Result`.
+## panic!
+The `panic!` macro can be used to generate a panic and start unwinding its stack. While unwinding, the runtime will take care of freeing all the resources *owned* by the thread by calling the destructor of all its objects.
+
+Since we are dealing with programs with only one thread, `panic!` will cause the program to report the panic message and exit.
