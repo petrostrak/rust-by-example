@@ -97,3 +97,5 @@ When multiple ownership is needed, `Rc`(Reference Counting) can be used. `Rc` ke
 Reference count of an `Rc` increases by 1 whenever an `Rc` is cloned, and decreases by 1 whenever one cloned `Rc` is dropped out of the scope. When an `Rc`'s reference count becomes zero (which means there are no remaining owners), both the `Rc` and the value are all dropped.
 
 Cloning an `Rc` never performs a deep copy. Cloning creates just another pointer to the wrapped value, and increments the count.
+## Arc
+When shared ownership between threads is needed, `Arc`(Atomically Reference Counted) can be used. This struct, via the Clone implementation can create a reference pointer for the location of a value in the memory heap while increasing the reference counter. As it shares ownership between threads, when the last reference pointer to a value is out of scope, the variable is dropped.
