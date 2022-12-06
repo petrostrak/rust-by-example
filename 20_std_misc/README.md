@@ -32,3 +32,7 @@ The `open` function can be used to open a file in read-only mode.
 A `File` owns a resource, the file descriptor and takes care of closing the file when it is droped.
 ### create
 The `create` function opens a file in write-only mode. If the file already existed, the old content is destroyed. Otherwise, a new file is created.
+### read_lines
+The method `lines()` returns an iterator over the lines of a file.
+
+`File::open` expects a generic, `AsRef<Path>`. That's what `read_lines()` expects as input.
