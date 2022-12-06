@@ -20,3 +20,13 @@ A Path can be created from an `OsStr`, and provides several methods to get infor
 A `Path` is immutable. The owned version of `Path` is `PathBuf`. The relation between `Path` and `PathBuf` is similar to that of `str` and `String`: a `PathBuf` can be mutated in-place, and can be dereferenced to a `Path`.
 
 Note that a `Path` is not internally represented as an UTF-8 string, but instead is stored as a vector of bytes (`Vec<u8>`). Therefore, converting a `Path` to a `&str` is not free and may fail (an `Option` is returned).
+## File I/O
+The `File` struct represents a file that has been opened (it wraps a file descriptor), and gives read and/or write access to the underlying file.
+
+Since many things can go wrong when doing file I/O, all the `File` methods return the `io::Result<T>` type, which is an alias for `Result<T, io::Error>`.
+
+This makes the failure of all I/O operations *explicit*. Thanks to this, the programmer can see all the failure paths, and is encouraged to handle them in a proactive manner.
+### open
+The `open` function can be used to open a file in read-only mode.
+
+A `File` owns a resource, the file descriptor and takes care of closing the file when it is droped.
