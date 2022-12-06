@@ -36,3 +36,5 @@ The `create` function opens a file in write-only mode. If the file already exist
 The method `lines()` returns an iterator over the lines of a file.
 
 `File::open` expects a generic, `AsRef<Path>`. That's what `read_lines()` expects as input.
+## Child processes
+The `process::Output` struct represents the output of a finished child process, and the `process::Command` struct is a process builder.
