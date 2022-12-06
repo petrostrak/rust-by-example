@@ -12,3 +12,11 @@ In this example, we will calculate the sum of all digits in a block of numbers. 
 Note that, although we're passing references across thread boundaries, Rust understands that we're only passing read-only references, and that thus no unsafety or data races can occur. Also because the references we're passing have `'static` lifetimes, Rust understands that our data won't be destroyed while these threads are still running. (When you need to share non-`static` data between threads, you can use a smart pointer like Arc to keep the data alive and avoid non-`static` lifetimes.)
 ## Channels
 Rust provides asynchronous `channels` for communication between threads. Channels allow a unidirectional flow of information between two end-points: the `Sender` and the `Receiver`.
+## Path
+The `Path` struct represents file paths in the underlying filesystem. There are two flavors of `Path`: `posix::Path`, for UNIX-like systems, and `windows::Path`, for Windows. The prelude exports the appropriate platform-specific `Path` variant.
+
+A Path can be created from an `OsStr`, and provides several methods to get information from the file/directory the path points to.
+
+A `Path` is immutable. The owned version of `Path` is `PathBuf`. The relation between `Path` and `PathBuf` is similar to that of `str` and `String`: a `PathBuf` can be mutated in-place, and can be dereferenced to a `Path`.
+
+Note that a `Path` is not internally represented as an UTF-8 string, but instead is stored as a vector of bytes (`Vec<u8>`). Therefore, converting a `Path` to a `&str` is not free and may fail (an `Option` is returned).
