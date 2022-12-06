@@ -40,3 +40,5 @@ The method `lines()` returns an iterator over the lines of a file.
 The `process::Output` struct represents the output of a finished child process, and the `process::Command` struct is a process builder.
 ### Pipes
 The `std::Child` struct represents a running child process, and exposes the `stdin`, `stdout` and `stderr` handles for interaction with the underlying process via pipes.
+### Wait
+If you'd like to `wait` for a `process::Child` to finish, you must call `Child::wait`, which will return a `process::ExitStatus`.
