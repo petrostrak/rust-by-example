@@ -30,3 +30,5 @@ This makes the failure of all I/O operations *explicit*. Thanks to this, the pro
 The `open` function can be used to open a file in read-only mode.
 
 A `File` owns a resource, the file descriptor and takes care of closing the file when it is droped.
+### create
+The `create` function opens a file in write-only mode. If the file already existed, the old content is destroyed. Otherwise, a new file is created.
