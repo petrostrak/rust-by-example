@@ -10,3 +10,5 @@ The aliasing rules (one writable reference XOR many readable references) automat
 In this example, we will calculate the sum of all digits in a block of numbers. We will do this by parcelling out chunks of the block into different threads. Each thread will sum its tiny block of digits, and subsequently we will sum the intermediate sums produced by each thread.
 
 Note that, although we're passing references across thread boundaries, Rust understands that we're only passing read-only references, and that thus no unsafety or data races can occur. Also because the references we're passing have `'static` lifetimes, Rust understands that our data won't be destroyed while these threads are still running. (When you need to share non-`static` data between threads, you can use a smart pointer like Arc to keep the data alive and avoid non-`static` lifetimes.)
+## Channels
+Rust provides asynchronous `channels` for communication between threads. Channels allow a unidirectional flow of information between two end-points: the `Sender` and the `Receiver`.
